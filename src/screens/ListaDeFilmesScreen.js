@@ -62,7 +62,39 @@ const filmes = [
 export default function ListaDeFilmesScreen(){
     return(
         <View style={styles.container}>
+            <View style={styles.header}>
+                <View>
+                    <Text style={styles.titulo}>Sugestões de Filmes</Text>
+                    <Text style={styles.subtitulo}>Ideias que você pode gostar</Text>
+                </View>
+            </View>
+            <FlatList
+            data={filmes}
+                keyExtractor={(item) => item.id}
+                contentContainerStyle={styles.lista}
 
+                renderItem={({ item }) => (
+                    <View style={styles.card}>
+                        <Image source={{ uri: item.imagem }} style={styles.imagem}/>
+                        <View style={styles.informacoes}>
+                            <View style={styles.tituloContainer}>
+                                <Text style={styles.nome}>{item.titulo}</Text>
+                            </View>
+                                <Text style={styles.genero}>{item.genero}</Text>
+                                <View style={styles.notaContainer}>
+                                    <Text style={styles.estrela}>★</Text>
+                                    <Text style={styles.nota}>{item.nota}</Text>
+                                </View>
+                            <Text style={styles.descricao} numberOfLines={2}>{item.descricao}</Text>
+
+                        </View>
+
+                    </View>
+                )}
+
+            />
+
+        
         </View>
     )
 }
@@ -110,5 +142,53 @@ const styles = StyleSheet.create({
         width: 85,
         height: 125,
         borderRadius: 7,
+    },
+
+     informacoes: {
+        flex: 1,
+        marginLeft: 12,
+        justifyContent: "center",
+    },
+    tituloContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+    },
+
+    nome:{
+        fontSize: 12,
+        fontWeight: "bold",
+        color: "#17324D"
+    },
+
+    genero:{
+        fontSize:9,
+        color: "#7890A5",
+        marginTop: 5,
+    },
+
+    notaContainer: {
+        flexDirection: "row",
+        alignItems: "center",
+        marginTop: 10,
+    },
+
+    estrela:{
+        fontSize: 10,
+        color: "#F4B942",
+        marginRight: 3,
+    },
+
+    nota:{
+        fontSize: 12,
+        fontWeight: "bold",
+        color: "#42566A",
+    },
+
+    descricao:{
+        fontSize: 12,
+        color: "#64788B",
+        lineHeight: 20,
+        marginTop: 10,
     },
 })
