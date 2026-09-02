@@ -113,12 +113,13 @@ const styles = StyleSheet.create({
     },
 
     titulo:{
-        fontSize: 15,
+        fontSize: 22,
+        fontWeight: "bold",
         color: "#740049"
     },
 
     subtitulo:{
-        fontSize: 9,
+        fontSize: 13,
         color: "#7890A5"
     },
 
