@@ -1,6 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-{/* Importação de Telas - Após a criação das mesmas */}
+import HomeScreen from "../screens/HomeScreen";
+import ListadeFilmesScreen from "../screens/ListaDeFilmesScreen";
 
 const Tab = createBottomTabNavigator();
 
